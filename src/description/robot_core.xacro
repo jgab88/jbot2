@@ -38,14 +38,15 @@
         <visual>
             <origin xyz="0.15 0 0.075" rpy="0 0 0" />
             <geometry>
-                <box size="0.3 0.3 0.15" />
+                <mesh filename="package://jbot2/description/meshes/chassis.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="white" />
         </visual>
         <collision>
             <origin xyz="0.15 0 0.075" rpy="0 0 0" />
             <geometry>
-                <box size="0.3 0.3 0.15" />
+                <mesh filename="package://jbot2/description/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
+                <!-- <box size="0.3 0.3 0.15" /> -->
             </geometry>
         </collision>
         <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
@@ -53,8 +54,11 @@
         </xacro:inertial_box>
     </link>
 
-    <gazebo reference="chasis"> 
+    <gazebo reference="chassis"> 
         <material>Gazebo/White</material>
+        <geometry>
+            <mesh package="$(find jbot2)/description/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
     </gazebo>
     
     <!-- LEFT WHEEL -->
